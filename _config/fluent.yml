@@ -1,0 +1,5 @@
+---
+Name: app-fluent-setup
+---
+TractorCow\Fluent\Extension\FluentDirectorExtension:
+  disable_default_prefix: true
