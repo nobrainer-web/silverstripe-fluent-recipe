@@ -12,3 +12,8 @@ SilverStripe\CMS\Model\SiteTree:
 SilverStripe\Assets\File:
   extensions:
     - NobrainerWeb\Fluent\Extensions\FluentFilteredExtension
+
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+    - NobrainerWeb\Fluent\Extensions\FluentFilteredExtension
