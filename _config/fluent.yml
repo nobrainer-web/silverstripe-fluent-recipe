@@ -7,8 +7,8 @@ TractorCow\Fluent\Extension\FluentDirectorExtension:
 
 SilverStripe\CMS\Model\SiteTree:
   extensions:
-    - TractorCow\Fluent\Extension\FluentFilteredExtension
+    - NobrainerWeb\Fluent\Extensions\FluentFilteredExtension
 
 SilverStripe\Assets\File:
   extensions:
-    - TractorCow\Fluent\Extension\FluentFilteredExtension
+    - NobrainerWeb\Fluent\Extensions\FluentFilteredExtension
