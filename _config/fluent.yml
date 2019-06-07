@@ -1,5 +1,14 @@
 ---
-Name: app-fluent-setup
+Name: nw-default-fluent-setup
+After: '#versionedfiles'
 ---
 TractorCow\Fluent\Extension\FluentDirectorExtension:
   disable_default_prefix: true
+
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentFilteredExtension
+
+SilverStripe\Assets\File:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentFilteredExtension

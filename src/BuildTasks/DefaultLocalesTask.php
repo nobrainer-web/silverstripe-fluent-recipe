@@ -32,6 +32,13 @@ class DefaultLocalesTask extends \SilverStripe\Dev\BuildTask
         $defaultLocales = self::config()->get("default_locales");
         $existingLocales = Locale::get()->column("Locale");
 
+        if(empty($defaultLocales)){
+            echo 'Please specificy default_locales in config. For example:';
+            echo '<br>';
+            echo '[da_DK => [\'Title\' => \'Dansk\', \'URLSegment\' => \'da\', \'IsGlobalDefault\' => 1]]';
+            return;
+        }
+
         foreach ($defaultLocales as $locale => $obj) {
 
             if (in_array($locale, $existingLocales)) {

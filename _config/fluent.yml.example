@@ -1,0 +1,61 @@
+### Rename this file if you want to use it
+---
+Name: nw-app-fluent-setup-example
+After: '#versionedfiles'
+---
+TractorCow\Fluent\Extension\FluentDirectorExtension:
+  disable_default_prefix: true
+
+Sheadawson\Linkable\Models\Link:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+    - TractorCow\Fluent\Extension\FluentFilteredExtension
+
+NobrainerWeb\App\DataObjects\Jobtitle:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentExtension
+
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentFilteredExtension
+
+SilverStripe\Assets\File:
+  extensions:
+    - TractorCow\Fluent\Extension\FluentFilteredExtension
+
+NobrainerWeb\App\Fluent\DefaultLocalesTask:
+  default_locales:
+    da_DK:
+      IsGlobalDefault: 1
+      Title: 'Dansk'
+      URLSegment: 'da'
+    en_GB:
+      Title: 'English'
+      URLSegment: 'en'
+
+
+NobrainerWeb\App\Fluent\ToggleFilteredLocales:
+  models:
+    - SilverStripe\CMS\Model\SiteTree
+    - SilverStripe\Assets\File
+    - Sheadawson\Linkable\Models\Link
+
+---
+Name: app-fluent-after-extensions
+After:
+  - 'fluent/*'
+  - 'assetsimage'
+---
+### Fixes for fluent filtered
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - NobrainerWeb\App\Fluent\FluentFiltered
+SilverStripe\AssetAdmin\Forms\FileFormFactory:
+  extensions:
+    - NobrainerWeb\App\Fluent\FluentFiltered
+SilverStripe\Assets\File:
+  extensions:
+    - NobrainerWeb\App\Fluent\FluentFiltered
+Sheadawson\Linkable\Models\Link:
+  extensions:
+    - NobrainerWeb\App\Fluent\FluentFiltered
