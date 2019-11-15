@@ -4,7 +4,7 @@ Name: nw-app-fluent-setup-example
 After: '#versionedfiles'
 ---
 
-NobrainerWeb\App\Fluent\DefaultLocalesTask:
+NobrainerWeb\Fluent\BuildTasks\DefaultLocalesTask:
   default_locales:
     da_DK:
       IsGlobalDefault: 1
