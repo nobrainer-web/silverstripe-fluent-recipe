@@ -8,12 +8,23 @@
 
 namespace NobrainerWeb\Fluent\Extensions;
 
-
+use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataExtension;
 use TractorCow\Fluent\Model\Locale;
 
 class FluentFilteredExtension extends \TractorCow\Fluent\Extension\FluentFilteredExtension
 {
+    public function updateCMSFields(FieldList $fields): void
+    {
+        // Do not let parent class add fields.
+    }
+
+    public function updateSettingsFields(FieldList $fields): void
+    {
+        // Add CMS fields from the parent extension (Attached Locales) to settings instead of CMS fields.
+        $fields = parent::updateCMSFields($fields);
+    }
+
     public function onBeforeWrite()
     {
         // add all locales to a newly created page automatically
