@@ -29,8 +29,9 @@ class FluentFilteredExtension extends \TractorCow\Fluent\Extension\FluentFiltere
     {
         // add all locales to a newly created page automatically
         if ($this->owner->hasMethod('FilteredLocales') && !$this->owner->isInDB() && !$this->owner->FilteredLocales()->exists()) {
-            $locales = Locale::get();
-            foreach ($locales as $locale) {
+            $default = Locale::singleton()->getDefaultLocale();
+            $locale = Locale::get()->filter('Locale', $default)->first();
+            if ($locale) {
                 $this->owner->FilteredLocales()->add($locale);
             }
         }
